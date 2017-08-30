@@ -10,11 +10,15 @@ var favRecipe = {
 //cmd-shift-L multiline shortcut
 
 console.log(favRecipe.title);
-console.log("Serves: "+ favRecipe.servings);
+console.log("Serves", + favRecipe.servings);
 console.log("Ingredients: ");
+
+
 for (var i = 0; i < favRecipe.ingredients.length; i++){
-    console.log((i+ 1) + "- " + favRecipe.ingredients[i]);
+    console.log((i+ 1) + "  " + favRecipe.ingredients[i]);
 }
+
+console.log(favRecipe.ingredients.join('\n'));
 
 var books = [
     {
@@ -45,12 +49,12 @@ for (var i = 0; i < books.length; i++){
 
 
 for (var i = 0; i < books.length; i ++){
-if (books[i].alreadyRead === true){
-    console.log ("You have already read " + books[i].title + ".");
-} else {
-    console.log("You still need to read " + books[i].title + ".");
-}
-}
+    if (books[i].alreadyRead === true){
+        console.log ("You have already read " + books[i].title + ".");
+    } else {
+        console.log("You still need to read " + books[i].title + ".");
+    }
+    }
 
 var movies =
     {
@@ -61,3 +65,10 @@ var movies =
 
 
 console.log(movies.title + " lasts for " + movies.duration + " minutes. Stars " + movies.stars[0] + ", " + movies.stars[1]+ " and " + movies.stars[2] + ".")
+
+
+var movieInfo = function(movies){
+    return movies.title + " lasts for " + movies.duration + " minutes. Stars " + movies.stars + "."
+}
+
+console.log( movieInfo(movies) );
