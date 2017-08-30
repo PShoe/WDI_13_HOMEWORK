@@ -9,7 +9,7 @@ var firstName = prompt('What is your first name?');
 console.log(firstName);
 
 
-// // _________USING MULTIPLE CHOICE______(this is allowed?)____
+// // _________USING MULTIPLE CHOICE ON MENU____(this is allowed?)____
 
 alert("Welcome " + firstName + '. Please choose from the menu:');
 
