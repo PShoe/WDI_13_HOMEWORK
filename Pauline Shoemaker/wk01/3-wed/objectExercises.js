@@ -9,16 +9,12 @@ var favRecipe = {
 
 //cmd-shift-L multiline shortcut
 
-
-
 console.log(favRecipe.title);
 console.log("Serves: "+ favRecipe.servings);
 console.log("Ingredients: ");
-console.log(favRecipe.ingredients[0]);
-console.log(favRecipe.ingredients[1]);
-console.log(favRecipe.ingredients[2]);
-console.log(favRecipe.ingredients[3]);
-
+for (var i = 0; i < favRecipe.ingredients.length; i++){
+    console.log((i+ 1) + "- " + favRecipe.ingredients[i]);
+}
 
 var books = [
     {
@@ -48,6 +44,14 @@ for (var i = 0; i < books.length; i++){
 }
 
 
+for (var i = 0; i < books.length; i ++){
+if (books[i].alreadyRead === true){
+    console.log ("You have already read " + books[i].title + ".");
+} else {
+    console.log("You still need to read " + books[i].title + ".");
+}
+}
+
 var movies =
     {
         title:'Goodwill Hunting',
@@ -56,4 +60,4 @@ var movies =
     };
 
 
-console.log(movies.title + " lasts for " + movies.duration + " minutes. Stars " + movies.stars[0] + " " + movies.stars[1]+ " " + movies.stars[2] + ".")
+console.log(movies.title + " lasts for " + movies.duration + " minutes. Stars " + movies.stars[0] + ", " + movies.stars[1]+ " and " + movies.stars[2] + ".")
