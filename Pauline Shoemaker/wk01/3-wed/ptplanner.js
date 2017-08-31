@@ -1,4 +1,4 @@
-console.log('This thing working?')
+console.log('ONE')
 
 
  var train = [
@@ -101,82 +101,171 @@ var GlenWaverly = ['Flagstaff', 'Melbourne Central', 'Parliament', 'Richmond', '
 function tramPlan(origin,dest){
 
 
-for (var i = 0; i < train.length; i ++){
-    if (origin ===  train[i].station){
-        var origin = train[i].station;
-        var originLine = train[i].line;
-        var originIndex = train[i].stopNum;
-        console.log(originIndex);
+    for (var i = 0; i < train.length; i ++){
+        if (origin ===  train[i].station){
+            var origin = train[i].station;
+            var originLine = train[i].line;
+            var originIndex = train[i].stopNum;
+        }
+        if (dest === train[i].station){
+            var dest = train[i].station;
+            var destLine = train[i].line;
+            var destIndex = train[i].stopNum;
+        }
     }
-    if (dest === train[i].station){
-        var dest = train[i].station;
-        var destLine = train[i].line;
-        var destIndex = train[i].stopNum;
-        console.log(destIndex);
 
-    }
-}
+    //---------------- IF STOPS ARE ON THE SAME LINE
+    if (originLine === destLine){
+        var yourLine = originLine;
 
-//IF ON THE SAME LINE
-if (originLine === destLine){
-    var yourLine = originLine;
-    console.log( "These stops are on the same " + yourLine + " line, you will not have to change lines.");
-    if (yourLine === 'Sandringham'){
-        var origIndex = Sandringham.indexOf(origin); // 1
-        var destIndex = Sandringham.indexOf(dest); // 4
-        var plan = Sandringham.slice(origIndex, destIndex + 1);
-        return plan;
-    }
-    else if (yourLine === 'Glen Waverly'){
-        var origIndex = GlenWaverly.indexOf(origin); // 1
-        var destIndex = GlenWaverly.indexOf(dest); // 4
-        var plan = GlenWaverly.slice(origIndex, destIndex + 1);
-        return plan;
-    }
-    else if (yourLine === 'Alamein'){
-        var origIndex = Alamein.indexOf(origin); // 1
-        if (originLine === destLine) // 4
-        var plan = Alamein.slice(origIndex, destIndex + 1);
-        return plan;
-    }
-};
+        console.log( "These stops are on the SAME " + yourLine + " line, you will not have to change lines.");
 
-//IF NOT ON THE SAME LINE
+        if (yourLine === 'Sandringham'){
+            var planForward = Sandringham.slice(originIndex, destIndex + 1);
+            var planBackward= Sandringham.slice(destIndex, originIndex + 1).reverse();
+            if (originIndex < destIndex) {
+                var sameLinePlan = planForward;
+            } else if (originIndex > destIndex) {
+                var sameLinePlan = planBackward;
+            } else {
+                var sameLinePlan = origin;
+            }
+            console.log(sameLinePlan);
+        }
+        else if (yourLine === 'Glen Waverly'){
+            var planForward = GlenWaverly.slice(originIndex, destIndex + 1);
+            var planBackward= GlenWaverly.slice(destIndex, originIndex + 1).reverse();
+            if (originIndex < destIndex) {
+                var sameLinePlan = planForward;
+            } else if (originIndex > destIndex) {
+                var sameLinePlan = planBackward;
+            } else {
+                var sameLinePlan = origin;
+            }
+            console.log(sameLinePlan);
+        }
+        else if (yourLine === 'Alamein'){
+            var planForward = Alamein.slice(originIndex, destIndex + 1);
+            var planBackward= Alamein.slice(destIndex, originIndex + 1).reverse();
+            if (originIndex < destIndex) {
+                var sameLinePlan = planForward;
+            } else if (originIndex > destIndex) {
+                var sameLinePlan = planBackward;
+            } else {
+                var sameLinePlan = origin;
+            }
+            console.log(sameLinePlan);
+        }
+
+    };
+
+
+
+// -------------------   IF NOT ON THE SAME LINE
+
+
 if (originLine !== destLine) {
     console.log("You will need to change lines to reach your destination.");
-    var richSandIndex = Sandringham.indexOf('Richmond');
-    var richGlenIndex = GlenWaverly.indexOf('Richmond');
-    var richAlaIndex = Alamein.indexOf('Richmond');
+    var richSandIndex = Sandringham.indexOf('Richmond'); //1
+    var richGlenIndex = GlenWaverly.indexOf('Richmond'); //3
+    var richAlaIndex = Alamein.indexOf('Richmond'); //1
+
+    //TO RICHMOND
 
     if (originLine === 'Sandringham'){
-        var origIndex = Sandringham.indexOf(origin);
-        var planToRich = Sandringham.slice(origIndex,richSandIndex);
+        var planForward= Sandringham.slice(originIndex,richSandIndex + 1);
+        var planBackward= Sandringham.slice(richSandIndex,originIndex +1).reverse();
+        if (originIndex < richSandIndex) {
+            var originPlan = planForward;
+        } else if (originIndex > richSandIndex){
+            var originPlan = planBackward;
+        } else {
+            var originPlan = origin;
+        }
     }
     else if (originLine === 'Alamein'){
-        var origIndex = Alamein.indexOf(origin);
-        var planToRich = Alamein.slice(origIndex,richAlaIndex);
+        var planForward= Alamein.slice(originIndex, richAlaIndex + 1);
+        var planBackward= Alamein.slice(richAlaIndex, originIndex + 1).reverse();
+        if (originIndex < richAlaIndex) {
+            var originPlan = planForward;
+        } else if (originIndex > richAlaIndex){
+            var originPlan = planBackward;
+        } else {
+            var originPlan = origin;
+        }
     }
     else if (originLine === 'Glen Waverly'){
-        var origIndex = GlenWaverly.indexOf(origin);
-        var planToRich = GlenWaverly.slice(origIndex,richGlenIndex);
-
+        var planForward= GlenWaverly.slice(originIndex, richGlenIndex + 1);
+        var planBackward= GlenWaverly.slice(richGlenIndex, originIndex + 1).reverse();
+        if (originIndex < richGlenIndex) {
+            var originPlan = planForward;
+        } else if (originIndex > richGlenIndex){
+            var originPlan = planBackward;
+        } else {
+            var originPlan = origin;
+        }
     }
 
+    //console.log("Plan to Richmond (should include Richmond): "+ originPlan);
+
+
+    // FROM RICHMOND
     if (destLine === 'Sandringham'){
-        var destIndex = Sandringham.indexOf(dest);
-        var planFromRich = Sandringham.slice(richSandIndex, destIndex + 1);
+        var planForward= Sandringham.slice(richSandIndex + 1, destIndex + 1);
+        var planBackward= Sandringham.slice(destIndex + 1, richSandIndex + 1).reverse();
+        if (richSandIndex < destIndex) {
+            var destPlan = planForward;
+        } else if (richSandIndex > destIndex){
+            var destPlan = planBackward;
+        } else {
+            var destPlan = dest;
+        }
     }
+
     else if (destLine === 'Alamein'){
-        var destIndex = Alamein.indexOf(dest);
-        var planFromRich = Alamein.slice(richAlaIndex, destIndex + 1);
-
+        var planForward= Alamein.slice(richAlaIndex +1, destIndex +1);
+        var planBackward= Alamein.slice(destIndex +1, richAlaIndex +1).reverse();
+        if (richAlaIndex < destIndex) {
+            var destPlan = planForward;
+        } else if (richAlaIndex > destIndex){
+            var destPlan = planBackward;
+        } else {
+            var destPlan = planBackward;
+        }
     }
+
     else if (destLine === 'Glen Waverly'){
-        var destIndex = GlenWaverly.indexOf(dest);
-        var planFromRich = GlenWaverly.slice(richAlaIndex, destIndex + 1);
+        var planForward= GlenWaverly.slice(richGlenIndex +1, destIndex + 1);
+        var planBackward= GlenWaverly.slice(destIndex +1, richGlenIndex +1).reverse();
+        if (richGlenIndex < destIndex) {
+            var destPlan = planForward;
+        } else if (richGlenIndex > destIndex){
+            var destPlan = planBackward;
+        } else {
+            var destPlan = dest;
+        }
     }
+    //console.log("Plan from Richmond: "+ destPlan);
 
-    var fullPlan = planToRich.concat(planFromRich);
-    return fullPlan;
+    var changeLinePlan = originPlan + ", " + destPlan;
+    console.log("Full plan: " + changeLinePlan);
+}
 
-}}
+}
+
+
+
+// //TESTING ____________________
+//SAME LINES
+console.log("SAME LINE- FORWARD --> Flinders Street, Richmond, East Richmond, Burnley, Hawthorn");
+console.log(tramPlan('Flinders Street','Hawthorn'));
+
+//console.log("SAME LINE REVERSE --> Glenferrie, Hawthorn, Burnley, East Richmond")
+console.log(tramPlan('Glenferrie','East Richmond'));
+
+//SWITCH LINES
+console.log("DIFFERENT LINES- FORWARD --> Flagstaff, Melbourne Central, Parliament, RICHMOND, South Yarra");
+console.log(tramPlan('Flagstaff','South Yarra'));
+
+//console.log("DIFFERENT LINES - REVERSE--> Hawthorn, Burnley, East Richmond, (GLEN WAVERLY) RICHMOND, Kooyong");
+console.log(tramPlan('Hawthorn','Prahran'));
