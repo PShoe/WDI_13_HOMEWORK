@@ -123,31 +123,41 @@ if (originLine === destLine){
         var planForward = Sandringham.slice(originIndex, destIndex + 1);
         var planBackward= Sandringham.slice(destIndex, originIndex + 1);
         planBackward.reverse();
-        if (planForward || planBackward !== null){
-
+        if (originIndex < destIndex) {
+            console.log(planForward);
+        } else if (originIndex > destIndex) {
+            console.log(planBackward);
+        } else {
+            console.log(origin);
         }
-        console.log("forward: " + planForward);
-        console.log("backward: " + planBackward);
+
     }
     else if (yourLine === 'Glen Waverly'){
         var planForward = GlenWaverly.slice(originIndex, destIndex + 1);
         var planBackward= GlenWaverly.slice(destIndex, originIndex + 1);
         planBackward.reverse();
-        console.log("forward: " + planForward);
-        console.log("backward: " + planBackward);
+        if (originIndex < destIndex) {
+            console.log(planForward);
+        } else if (originIndex > destIndex) {
+            console.log(planBackward);
+        } else {
+            console.log(origin);
+        }
     }
     else if (yourLine === 'Alamein'){
         var planForward = Alamein.slice(originIndex, destIndex + 1);
         var planBackward= Alamein.slice(destIndex, originIndex + 1);
         planBackward.reverse();
-        console.log("forward: " + planForward);
-        console.log("backward: " + planBackward);
+        if (originIndex < destIndex) {
+            console.log(planForward);
+        } else if (originIndex > destIndex) {
+            console.log(planBackward);
+        } else {
+            console.log(origin);
+        }
+
     }
 };
-
-
-
-
 
 
 
@@ -195,12 +205,16 @@ if (originLine !== destLine) {
 
 
 
-
+//SAME LINES
 console.log("SAME LINE- FORWARD --> Flinders Street, Richmond, East Richmond, Burnley, Hawthorn");
 console.log(tramPlan('Flinders Street','Hawthorn'));
+
 console.log("SAME LINE REVERSE --> Glenferrie, Hawthorn, Burnley, East Richmond")
 console.log(tramPlan('Glenferrie','East Richmond'));
+
+//SWITCH LINES
 console.log("DIFFERENT LINES- FORWARD --> Flagstaff, Melbourne Central, Parliament, Richmond, South Yarra");
+
 console.log(tramPlan('Flagstaff','South Yarra'));
 console.log("DIFFERENT LINES - REVERSE--> Hawthorn, Burnley, East Richmond, Richmond, Kooyong");
 console.log(tramPlan('Hawthorn','Kooyong'));
