@@ -1,4 +1,4 @@
-console.log('ONE')
+console.log('ONE- FINAL')
 
 
  var train = [
@@ -98,7 +98,7 @@ var GlenWaverly = ['Flagstaff', 'Melbourne Central', 'Parliament', 'Richmond', '
 
 
 
-function tramPlan(origin,dest){
+function tramPlan(origin,dest) {
 
 
     for (var i = 0; i < train.length; i ++){
@@ -115,10 +115,11 @@ function tramPlan(origin,dest){
     }
 
     //---------------- IF STOPS ARE ON THE SAME LINE
-    if (originLine === destLine){
+
+    if (originLine === destLine) {
         var yourLine = originLine;
 
-        console.log( "These stops are on the SAME " + yourLine + " line, you will not have to change lines.");
+        console.log( "These stops are on the " + yourLine + " line, you will not have to change lines.");
 
         if (yourLine === 'Sandringham'){
             var planForward = Sandringham.slice(originIndex, destIndex + 1);
@@ -154,7 +155,8 @@ function tramPlan(origin,dest){
             } else {
                 var sameLinePlan = origin;
             }
-            console.log(sameLinePlan);
+            var sameLinePlan = sameLinePlan.join();
+            console.log("Route plan: " + sameLinePlan);
         }
 
     };
@@ -248,7 +250,7 @@ if (originLine !== destLine) {
     //console.log("Plan from Richmond: "+ destPlan);
 
     var changeLinePlan = originPlan + ", " + destPlan;
-    console.log("Full plan: " + changeLinePlan);
+    console.log("Route plan: " + changeLinePlan);
 }
 
 }
@@ -257,15 +259,9 @@ if (originLine !== destLine) {
 
 // //TESTING ____________________
 //SAME LINES
-console.log("SAME LINE- FORWARD --> Flinders Street, Richmond, East Richmond, Burnley, Hawthorn");
 console.log(tramPlan('Flinders Street','Hawthorn'));
-
-//console.log("SAME LINE REVERSE --> Glenferrie, Hawthorn, Burnley, East Richmond")
 console.log(tramPlan('Glenferrie','East Richmond'));
 
 //SWITCH LINES
-console.log("DIFFERENT LINES- FORWARD --> Flagstaff, Melbourne Central, Parliament, RICHMOND, South Yarra");
 console.log(tramPlan('Flagstaff','South Yarra'));
-
-//console.log("DIFFERENT LINES - REVERSE--> Hawthorn, Burnley, East Richmond, (GLEN WAVERLY) RICHMOND, Kooyong");
 console.log(tramPlan('Hawthorn','Prahran'));
