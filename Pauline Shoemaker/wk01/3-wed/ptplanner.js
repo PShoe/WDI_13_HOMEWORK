@@ -1,5 +1,6 @@
 console.log('ONE- FINAL')
 
+// use ONLY arrays or ONLY objects
 
  var train = [
      {
@@ -131,7 +132,6 @@ function tramPlan(origin,dest) {
             } else {
                 var sameLinePlan = origin;
             }
-            console.log(sameLinePlan);
         }
         else if (yourLine === 'Glen Waverly'){
             var planForward = GlenWaverly.slice(originIndex, destIndex + 1);
@@ -143,7 +143,6 @@ function tramPlan(origin,dest) {
             } else {
                 var sameLinePlan = origin;
             }
-            console.log(sameLinePlan);
         }
         else if (yourLine === 'Alamein'){
             var planForward = Alamein.slice(originIndex, destIndex + 1);
@@ -155,9 +154,10 @@ function tramPlan(origin,dest) {
             } else {
                 var sameLinePlan = origin;
             }
-            var sameLinePlan = sameLinePlan.join();
-            console.log("Route plan: " + sameLinePlan);
+;
         }
+        var sameLinePlan = sameLinePlan.join();
+        console.log("ROUTE PLAN: " + sameLinePlan);
 
     };
 
