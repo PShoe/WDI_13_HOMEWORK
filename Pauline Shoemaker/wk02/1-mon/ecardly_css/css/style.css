@@ -3,9 +3,14 @@ body {
   background-color: lightgrey;
   background-repeat: no-repeat;
   margin: 0 auto;
+  font-family: Arial, sans-serif;
 }
 li {
   list-style: none;
+}
+h1,
+h3 {
+  font-size: 18px;
 }
 a {
   text-decoration: none;
@@ -22,7 +27,7 @@ a {
 }
 main {
   margin: 0 auto;
-  width: 95%;
+  width: 80%;
 }
 .column1 {
   width: 500px;
