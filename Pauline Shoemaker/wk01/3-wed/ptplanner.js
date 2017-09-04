@@ -122,6 +122,7 @@ function tramPlan(origin,dest) {
 
         console.log( "These stops are on the " + yourLine + " line, you will not have to change lines.");
 
+
         if (yourLine === 'Sandringham'){
             var planForward = Sandringham.slice(originIndex, destIndex + 1);
             var planBackward= Sandringham.slice(destIndex, originIndex + 1).reverse();
@@ -208,9 +209,6 @@ if (originLine !== destLine) {
         }
     }
 
-    //console.log("Plan to Richmond (should include Richmond): "+ originPlan);
-
-
     // FROM RICHMOND
     if (destLine === 'Sandringham'){
         var planForward= Sandringham.slice(richSandIndex + 1, destIndex + 1);
@@ -247,7 +245,6 @@ if (originLine !== destLine) {
             var destPlan = dest;
         }
     }
-    //console.log("Plan from Richmond: "+ destPlan);
 
     var changeLinePlan = originPlan + ", " + destPlan;
     console.log("Route plan: " + changeLinePlan);
