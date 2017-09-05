@@ -8,12 +8,16 @@ li {
   list-style: none;
 }
 h1,
-h3 {
+h2 {
   font-size: 18px;
 }
 a {
   text-decoration: none;
   color: tomato;
+}
+main {
+  margin: 0 auto;
+  width: 70%;
 }
 .heading {
   text-align: center;
@@ -24,19 +28,15 @@ a {
 .heading img {
   height: 180px;
 }
-main {
-  margin: 0 auto;
-  width: 70%;
-}
 .column1 {
-  width: 450px;
+  width: 420px;
   background-color: white;
   padding: 20px;
   float: left;
   margin: 5px;
 }
 .ecard {
-  width: 350px;
+  width: 400px;
 }
 .column2 {
   width: 200px;
@@ -58,6 +58,9 @@ footer {
   padding: 10px 50px;
   text-align: center;
   clear: both;
+}
+footer img {
+  height: 35px;
 }
 .postedBy {
   border-top: 1px dotted black;
