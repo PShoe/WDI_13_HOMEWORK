@@ -13,7 +13,7 @@ body{
 }
 header {
   padding-bottom: 20px;
-  margin-top: 20px;
+  margin-top: 30px;
   margin-bottom: 10px;
 }
 header h1 {
@@ -21,11 +21,16 @@ header h1 {
   display: inline-block;
   padding-right: 20px;
   margin: 0;
+  font-weight: lighter;
+  letter-spacing: 2px;
+  padding-bottom: 5px;
+  font-size: 40px;
 }
 header h2 {
   color: grey;
   display: inline-block;
   margin: 0;
+  font-weight: lighter;
 }
 header ul {
   padding: 0;
@@ -63,8 +68,9 @@ main h2 {
   padding: 5px 0;
 }
 main article p::first-letter {
-    font-size: 200%;
-    color: #8A2BE2;
+    font-size: 250%;
+    color: lightgrey;
+
 }
 article footer {
   text-align: right;
