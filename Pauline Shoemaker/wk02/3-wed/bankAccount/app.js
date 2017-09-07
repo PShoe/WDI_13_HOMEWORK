@@ -1,7 +1,7 @@
 console.log('Bank Account App');
 
-var withInput = document.querySelector('#withdraw');
-var depoInput = document.querySelector('#deposit');
+var withInput = document.querySelector('#withdraw1');
+var depoInput = document.querySelector('#deposit1');
 var withButton = document.querySelector('#withButton');
 var depoButton = document.querySelector('#depoButton');
 var curAmtSpanAud = document.querySelector('#aud');
@@ -10,8 +10,8 @@ var curAmtSpanUsd = document.querySelector('#usd');
 
 depoButton.addEventListener('click',function(){
   var current = 0;
-  var deposit = Number(depoInput.value); //5
-  var newAmt = current + deposit;  //5
+  var deposit1 = Number(depoInput.value); //5
+  var newAmt = current + deposit1;  //5
   var current = newAmt
   curAmtSpanAud.textContent = newAmt.toFixed(2);
   curAmtSpanUsd.textContent = (newAmt * .8).toFixed(2);
