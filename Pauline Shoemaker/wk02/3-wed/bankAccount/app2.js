@@ -101,12 +101,34 @@ withdrawCheckingBtn.addEventListener('click', function () {
     checking.withdraw(amountChecking);
     amountInputChecking.value = "";
     renderCheckingBalance();
-  } else {
+  } else if (checking.balance < amountChecking) {
+    checking.withdraw(amountChecking);
+    renderCheckingBalance();
+    var amountNeeded = checking.balance * -1;//magic
+
+    if (savings.balance < amountNeeded){
+      var noFunds = document.createElement("P");
+      var alertText = document.createTextNode("You don't have enough money, mate")
+      noFunds.appendChild(alertText);
+      checkingBox.appendChild(noFunds);
+      checking.deposit(amountChecking);
+      renderCheckingBalance();
+
+    } else if (savings.balance >= amountNeeded){
     var noFunds = document.createElement("P");
-    var alertText = document.createTextNode("You don't have enough money, mate")
+    var alertText = document.createTextNode("Now transferring $" + amountNeeded + " to your checking account.")
     noFunds.appendChild(alertText);
     checkingBox.appendChild(noFunds);
+    transferFunds(amountNeeded);
+    renderCheckingBalance();
+    renderBalance();
+  }
   }
 });
 
 // Transferring from Savings to Checking
+
+var transferFunds = function (amountNeeded) {
+  savings.balance = savings.balance - amountNeeded;
+  checking.balance = checking.balance + amountNeeded;
+}
