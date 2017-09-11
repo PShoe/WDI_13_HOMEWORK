@@ -1,3 +1,52 @@
-.savings p {
+body {
+  font-family: 'Raleway', sans-serif;
+  margin: 0 auto;
+  width: 80%;
+  background-color: #6dd7d3;
+}
+main {
+  margin:20px;
+}
+input {
+  width: 4em;
+  border: none;
+  padding: 10px 5px;
+  font-size: 20px;
+}
+h1 {
+  text-align: center;
+  font-weight: bold;
+  color: 	#095575;
+  font-size: 30px;
+  margin: 0px;
+}
+button {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0px;
+  font-family: Georgia;
+  color: #ffffff;
+  font-size: 20px;
+  background: #095575;
+  padding: 10px 25px 10px 25px;
+  border: solid #1f628d 1px;
+  border: none;
+  text-decoration: none;
+}
+.checking,
+.savings {
+  font-size: 40px;
+  color: #5995ff;
+  background-color: #affff7;
+  padding: 10px;
+  border: 2px solid #feffbd;
+  margin:10px 0;
+  text-align: center;
+  min-width: 200px;
+}
+
+p {
   color: red;
+  font-size: 20px;
+  text-align: center;
 }

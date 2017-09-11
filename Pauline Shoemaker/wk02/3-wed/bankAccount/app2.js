@@ -1,6 +1,5 @@
-console.log("Bank Redo")
+console.log("Bank Account Redo")
 
-// var balance = 0;
 
 var savings = {
   balance: 0,
