@@ -33,6 +33,34 @@ else
   puts "you got it!"
 end
 
+puts "Chose a maximum value"
+user_max = gets.to_i
+puts user_max
+
+computer_max_number = Random.rand(1..user_max)
+puts computer_max_number
+
+puts "Now please guess a number from 1 to #{ user_max }"
+user_max_guess = gets.to_i
+
+if user_max_guess == computer_max_number
+  puts "congrats!"
+else
+  until user_max_guess == computer_number
+    if user_max_guess < computer_max_number
+      puts "higher!"
+      user_max_guess = gets.to_i
+    elsif user_max_guess > computer_max_number
+      puts "lower!"
+      user_max_guess = gets.to_i
+    else
+      puts "you got it!"
+      break
+    end
+  end
+end
+
+
 binding.pry
 
 # guesses = []
