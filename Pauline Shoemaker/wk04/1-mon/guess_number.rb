@@ -39,7 +39,7 @@ puts user_max
 
 computer_max_number = Random.rand(1..user_max)
 puts computer_max_number
-
+3
 puts "Now please guess a number from 1 to #{ user_max }"
 user_max_guess = gets.to_i
 
