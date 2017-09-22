@@ -1,0 +1,11 @@
+<h1>Guest book</h1>
+
+<form action="/leave_comment" method="post">
+  <label for="body">Comment</label>
+  <textarea id="body" name="body"></textarea>
+  <button>Post</button>
+</form>
+
+<% @comments.each do |comment| %>
+  <p><%= comment %></p>
+<% end %>
