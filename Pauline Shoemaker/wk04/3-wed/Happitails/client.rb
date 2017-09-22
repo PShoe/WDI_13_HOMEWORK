@@ -1,12 +1,5 @@
 require 'pry'
 
-
-animal = [
-    ginger: Animal.new('ginger, 2, cat')
-]
-
-
-
 class Client
   def initialize(client)
     @name = name
@@ -18,4 +11,4 @@ end
 
 
 
-binding.pry
+# binding.pry

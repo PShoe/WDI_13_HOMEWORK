@@ -1,65 +1,40 @@
 require 'pry'
 require_relative 'animal.rb'
 require_relative 'client.rb'
+require 'sinatra'
+require 'sinatra/reloader'
 
-shelter = [
-  ginger: Animal.new('ginger, 2, cat')
-]
-shelter[:ginger]
+puts "____ MENU ____ \n
+1. Display all animals \n
+2. Display all clients \n
+3. Create an animal \n
+4. Create an client \n
+5. Facilitate client adopts an animal \n
+6. Facilitate client puts an animal up for adoption \n
+PLEASE CHOSE AN OPTION (1-6)"
+menu_answer = gets.chomp
 
 
-clients = {
-  "john" =>
-  {
-    :num_children = 2,
-    :age = 45,
-    :list_pets = ['dog', 'cat']
-  }
-  "mike" =>
-  {
-    :num_children = 2,
-    :age = 45,
-    :list_pets = ['lizard', 'cat']
-  }
-  "fluffy" =>
-  {
-    :num_children = 2,
-    :age = 45,
-    :list_pets = ['dog']
-  }
-  "pooch" =>
-  {
-    :num_children = 2,
-    :age = 45,
-    :list_pets = ['cat']
-  }
-}
+if menu_answer == 3
+animals = {}
+shelter = []
 
 puts "Enter the name of your animal: "
-name = gets.chomp
-animals[name] = {}
+animal_name = gets.chomp
 puts "Species: "
 species = gets.chomp
-animals[name][:species] = species
 puts "Gender: (m/f)"
 gender = gets.chomp
-animals[name][:gender] = gender
 puts "Age: "
-age = gets.chomp
-animals[name][:age] = age
-# make this a loop
+animal_age = gets.chomp
 
-puts "Name of client: "
-name = gets.chomp
-client[name] = {}
-puts "Num of children: "
-num_children = gets.chomp
-client[name][:num_children] = num_children
-puts "Age: "
-age = gets.chomp
-client[name][:age] = age
+animals[animal_name] = {}
+animals[animal_name][:species] = species
+animals[animal_name][:gender] = gender
+animals[animal_name][:age] = age
 
-Client.new()
+# shelter.push(animals[animal_name])
 
-
+puts shelter
 binding.pry
+end
