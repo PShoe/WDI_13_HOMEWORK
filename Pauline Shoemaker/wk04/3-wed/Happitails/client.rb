@@ -1,11 +1,10 @@
 require 'pry'
 
 class Client
-  def initialize(client)
-    @name = name
-    @num_children = null
-    @age = null
-    @pets = []
+  def initialize(client_name,num_children,age)
+    @client_name
+    @num_children.to_i
+    @age.to_i
   end
 end
 

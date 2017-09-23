@@ -6,6 +6,7 @@ require 'sinatra/reloader'
 
 
 return_to_menu = true
+# filler data
 shelter = [
   {"Ginger" => {
     species: 'cat',
@@ -13,13 +14,22 @@ shelter = [
     age: '10'
   }},
   {"Fluffy" => {
-    species:'dog',
+    name:'dog',
     gender: 'm',
     age: '2'
   }}
 ]
-clients [
-  
+clients = [
+  {"Anne" => {
+    num_children: '2',
+    age: '40',
+    pets: []
+  }},
+  {"Charlie" => {
+    num_children: '0',
+    age: '30',
+    pets: []
+  }}
 ]
 
 while return_to_menu == true do
@@ -36,11 +46,14 @@ menu_answer = gets.chomp.to_i
   if menu_answer == 1
     puts shelter
   end
+  if menu_answer == 2
+    puts clients
+  end
 
   if menu_answer == 3
     animal = {}
     puts "Enter the name of your animal: "
-    name = gets.chomp
+    animal_name = gets.chomp
     puts "Species: "
     species = gets.chomp
     puts "Gender: (m/f)"
@@ -48,15 +61,34 @@ menu_answer = gets.chomp.to_i
     puts "Age: "
     age = gets.chomp
 
-    animal[name] = {}
-    animal[name][:species] = species
-    animal[name][:gender] = gender
-    animal[name][:age] = age
+    animal[animal_name] = {}
+    animal[animal_name][:species] = species
+    animal[animal_name][:gender] = gender
+    animal[animal_name][:age] = age
 
     animal_name = Animal.new(animal_name,age,gender,species)
 
     shelter.push(animal);
-    puts "Animal has been successfully added to shelter, will return to main menu"
+    puts "Animal has been successfully added to shelter, you will now return to main menu"
+  end
+
+  if menu_answer == 4
+    client = {}
+    puts "Enter the name of the client: "
+    client_name = gets.chomp
+    puts "Number of children: "
+    num_children = gets.chomp
+    puts "Age: "
+    age = gets.chomp
+
+    client[client_name] = {}
+    client[client_name][:num_children] = num_children
+    client[client_name][:age] = age
+
+    client_name = Client.new(client_name,num_children,age)
+
+    clients.push(client);
+    puts "This client has been successfully added to our records, you will now return to main menu"
   end
 
 end

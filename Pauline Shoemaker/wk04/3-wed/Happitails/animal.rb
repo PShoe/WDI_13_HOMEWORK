@@ -1,8 +1,8 @@
 require 'pry'
 
 class Animal
-  def initialize (name,age,gender,species)
-    @name
+  def initialize (animal_name,age,gender,species)
+    @animal_name
     @age.to_i
     @gender
     @species
