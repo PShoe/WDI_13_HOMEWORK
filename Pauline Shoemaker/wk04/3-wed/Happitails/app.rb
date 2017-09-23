@@ -8,28 +8,28 @@ require 'sinatra/reloader'
 return_to_menu = true
 # filler data
 shelter = [
-  {"Ginger" => {
-    species: 'cat',
-    gender: 'f',
-    age: '10'
-  }},
-  {"Fluffy" => {
-    name:'dog',
-    gender: 'm',
-    age: '2'
-  }}
+  # {"Ginger" => {
+  #   species: 'cat',
+  #   gender: 'f',
+  #   age: '10'
+  # }},
+  # {"Fluffy" => {
+  #   name:'dog',
+  #   gender: 'm',
+  #   age: '2'
+  # }}
 ]
 clients = [
-  {"Anne" => {
-    num_children: '2',
-    age: '40',
-    pets: []
-  }},
-  {"Charlie" => {
-    num_children: '0',
-    age: '30',
-    pets: []
-  }}
+  # {"Anne" => {
+  #   num_children: '2',
+  #   age: '40',
+  #   pets: []
+  # }},
+  # {"Charlie" => {
+  #   num_children: '0',
+  #   age: '30',
+  #   pets: []
+  # }}
 ]
 
 while return_to_menu == true do
@@ -51,7 +51,7 @@ menu_answer = gets.chomp.to_i
   end
 
   if menu_answer == 3
-    animal = {}
+
     puts "Enter the name of your animal: "
     animal_name = gets.chomp
     puts "Species: "
@@ -61,19 +61,15 @@ menu_answer = gets.chomp.to_i
     puts "Age: "
     age = gets.chomp
 
-    animal[animal_name] = {}
-    animal[animal_name][:species] = species
-    animal[animal_name][:gender] = gender
-    animal[animal_name][:age] = age
 
     animal_name = Animal.new(animal_name,age,gender,species)
 
-    shelter.push(animal);
+    shelter.push(animal_name;
     puts "Animal has been successfully added to shelter, you will now return to main menu"
   end
 
   if menu_answer == 4
-    client = {}
+
     puts "Enter the name of the client: "
     client_name = gets.chomp
     puts "Number of children: "
@@ -81,14 +77,24 @@ menu_answer = gets.chomp.to_i
     puts "Age: "
     age = gets.chomp
 
-    client[client_name] = {}
-    client[client_name][:num_children] = num_children
-    client[client_name][:age] = age
 
-    client_name = Client.new(client_name,num_children,age)
+    new_client = Client.new(client_name,num_children,age)
 
-    clients.push(client);
+    clients.push(new_client);
     puts "This client has been successfully added to our records, you will now return to main menu"
+    binding.pry
+  end
+
+  if menu_answer == 5
+    # 5. Facilitate client adopts an animal \n
+    puts shelter
+    puts "which animal would you like to adopt?"
+    animal_selected = gets.chomp
+    # Client.add_pet(animal_selected)
+  end
+
+  if menu_answer == 6
+    # 6. Facilitate client puts an animal up for adoption \n
   end
 
 end
