@@ -11,6 +11,9 @@ class Animal
   def add_toy()
   end
 
+  def display()
+  end
+
 end
 
 # binding.pry
