@@ -1,4 +1,4 @@
-helter = [
+shelter = [
   ginger: Animal.new('ginger, 2, cat')
 ]
 shelter[:ginger]

@@ -1,17 +1,16 @@
 require 'pry'
 
 class Animal
-  def initialize(animal)
+  def initialize (name,age,gender,species)
     @name
-    @age = null
-    @gender = ''
-    @species = ''
-    @toys = []
+    @age.to_i
+    @gender
+    @species
   end
 
   def add_toy()
   end
-  
+
 end
 
 # binding.pry
