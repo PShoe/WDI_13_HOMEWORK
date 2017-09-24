@@ -93,7 +93,7 @@ end
       puts animal.name
     end
 
-    puts "Which animal would you like to adopt?"
+    puts "Which animal would they like to adopt?"
     animal_selected = gets.chomp
     animal_selected = shelter.select {|animal| animal.name == animal_selected}
     animal_selected = animal_selected.first
