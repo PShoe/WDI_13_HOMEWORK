@@ -6,31 +6,8 @@ require 'sinatra/reloader'
 
 
 return_to_menu = true
-# filler data
-shelter = [
-  # {"Ginger" => {
-  #   species: 'cat',
-  #   gender: 'f',
-  #   age: '10'
-  # }},
-  # {"Fluffy" => {
-  #   name:'dog',
-  #   gender: 'm',
-  #   age: '2'
-  # }}
-]
-clients = [
-  # {"Anne" => {
-  #   num_children: '2',
-  #   age: '40',
-  #   pets: []
-  # }},
-  # {"Charlie" => {
-  #   num_children: '0',
-  #   age: '30',
-  #   pets: []
-  # }}
-]
+shelter = []
+clients = []
 
 while return_to_menu == true do
 puts "____ MENU ____ \n
@@ -43,11 +20,30 @@ puts "____ MENU ____ \n
 PLEASE CHOSE AN OPTION (1-6)"
 menu_answer = gets.chomp.to_i
 
+
+if shelter == []
+test_animal1 = Animal.new('Rex','2','m','cat')
+test_animal2 = Animal.new('Spike','4','m','cat')
+shelter.push(test_animal1)
+shelter.push(test_animal2)
+end
+if clients == []
+test_client1 = Client.new('John','2','40')
+test_client2 = Client.new('Jane','1','30')
+clients.push(test_client1)
+clients.push(test_client2)
+end
+
   if menu_answer == 1
-    puts shelter
+    shelter.each do |animal|
+      puts animal.name
+    end
+
   end
   if menu_answer == 2
-    puts clients
+    clients.each do |client|
+      puts client.name
+    end
   end
 
   if menu_answer == 3
@@ -61,10 +57,8 @@ menu_answer = gets.chomp.to_i
     puts "Age: "
     age = gets.chomp
 
-
     animal_name = Animal.new(animal_name,age,gender,species)
-
-    shelter.push(animal_name;
+    shelter.push(animal_name);
     puts "Animal has been successfully added to shelter, you will now return to main menu"
   end
 
@@ -82,15 +76,32 @@ menu_answer = gets.chomp.to_i
 
     clients.push(new_client);
     puts "This client has been successfully added to our records, you will now return to main menu"
-    binding.pry
   end
 
   if menu_answer == 5
-    # 5. Facilitate client adopts an animal \n
-    puts shelter
-    puts "which animal would you like to adopt?"
+
+    clients.each do |client|
+      puts client.name
+    end
+
+    puts "Which client would like to adopt?"
+    client_will_adopt = gets.chomp
+    # find object this is with
+    client_will_adopt = clients.select {|client| client.name == client_will_adopt }
+
+    shelter.each do |animal|
+      puts animal.name
+    end
+
+    puts "Which animal would you like to adopt?"
     animal_selected = gets.chomp
-    # Client.add_pet(animal_selected)
+    animal_selected = shelter.select {|animal| animal.name == animal_selected}
+    animal_selected = animal_selected.first
+
+    client_will_adopt.first.add_pet animal_selected
+    shelter.delete(animal_selected)
+
+binding.pry
   end
 
   if menu_answer == 6

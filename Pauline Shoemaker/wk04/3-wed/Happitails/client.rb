@@ -10,20 +10,9 @@ class Client
   def name
     @client_name
   end
-  def add_pet (message)
-    puts message
-    # (client, selected_pet)
-    # shelter.each do |animal|
-    #   if animal_selected == shelter['animal_name']
-    #     puts "found it"
-    #   end
-    # end
-
-
-
-    # add to pets array for client
-    # clients[0]['Anne'].add_pet
-    # remove from shelter array
+  def add_pet selected_pet
+    @pets.push(selected_pet)
+    puts @pets
   end
 end
 

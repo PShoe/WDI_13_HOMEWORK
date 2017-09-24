@@ -8,14 +8,10 @@ class Animal
     @species = species
   end
   def name
-    @name
+    @animal_name
   end
   def add_toy()
   end
-
-  def display()
-  end
-
 end
 
 # binding.pry
