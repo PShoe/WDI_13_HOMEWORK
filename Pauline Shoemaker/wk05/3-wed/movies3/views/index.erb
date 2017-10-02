@@ -5,3 +5,6 @@
       <input type="text" name="movie_title">
       <button type="submit">Submit</button>
     </form>
+    <% if @no_results %>
+      <p>We don't have this movie</p>
+    <% end %>
