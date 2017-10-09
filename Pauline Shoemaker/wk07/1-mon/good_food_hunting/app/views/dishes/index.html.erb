@@ -1,0 +1,22 @@
+<h1>All Dishes</h1>
+
+<a href="/dishes/new">New Dish</a>
+
+<% @dishes.each do |dish| %>
+<article class="dish">
+  <h2>
+    <a href="/dishes/<%= dish.id %>">
+      <!-- <a href="/dishes?id=<%#= dish["id"] %>"> -->
+      <%= dish.name %>
+    </a>
+  </h2>
+  <a href="/dishes/<%= dish.id %>/edit">edit</a>
+  <form action="/dishes/<%= dish.id %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="delete">
+    <button type="submit">Delete</button>
+  </form>
+  <!-- <a href="/dishes/<%= dish["id"] %>/delete">delete</a> -->
+  <img src="<%= dish.image_url %>" width="200">
+</article>
+<% end %>
