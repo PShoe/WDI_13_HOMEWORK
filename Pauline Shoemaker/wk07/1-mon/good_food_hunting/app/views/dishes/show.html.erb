@@ -1,0 +1,24 @@
+
+<a href="/dishes/<%= @dish.id %>/edit">Edit</a>
+
+<a href="/dishes/">All Dishes</a>
+
+
+<h1><%= @dish.name %></h1>
+<h1><%= @dish.venue.name %></h1>
+
+<img src="<%= @dish.image_url %>" width="400" alt="">
+
+<!-- shortcut to generate form -->
+<%= form_tag '/comments', method: 'post' do %>
+  <input type="hidden" name="dish_id" value="<%= @dish.id %>">
+  <label for="">comment</label>
+  <textarea name="content" rows="8" cols="80"></textarea>
+  <button>post comment</button>
+<% end %>
+<!-- - -->
+
+<h5>Comments</h5>
+<% @comments.each do |comment| %>
+  <p><%= comment.content %></p>
+<% end %>

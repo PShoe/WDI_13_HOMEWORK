@@ -8,15 +8,18 @@ class DishesController < ApplicationController
     dish = Dish.new
     dish.name = params[:name]
     dish.image_url = params[:image_url]
+    dish.venue_id = params[:venue_id]
     dish.save
-    redirect_to '/dishes'
+    redirect_to '/dishes/'
   end
   def destroy
-    @dish = Dish.find(params[:id]).destroy
-    redirect '/dishes'
+    dish = Dish.find(params[:id])
+    dish.destroy
+    redirect_to "/dishes"
   end
   def show
     @dish = Dish.find(params[:id])
+    @comments = Comment.all
   end
   def edit
     @dish = Dish.find(params[:id])
@@ -28,5 +31,4 @@ class DishesController < ApplicationController
   dish.save
   redirect_to "/dishes/#{dish.id}"
   end
-
 end

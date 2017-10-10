@@ -7,7 +7,9 @@
   <h2>
     <a href="/dishes/<%= dish.id %>">
       <!-- <a href="/dishes?id=<%#= dish["id"] %>"> -->
-      <%= dish.name %>
+      <p><%= dish.name %></p>
+      <p><%= dish.venue.name %></p>
+
     </a>
   </h2>
   <a href="/dishes/<%= dish.id %>/edit">edit</a>
