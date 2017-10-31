@@ -4,11 +4,11 @@ var fs = require('fs');
 var app = function(request, response) {
 
   arrayObjects = []
-  fs.readFile('postcodes.csv', 'utf-8', function(err, data){
+  fs.readFile('postcodes_test.csv', 'utf-8', function(err, data){
     array = data.split('\n');
     headers = array[0];
-    eachHeader = headers.split(',') // each
-    array.shift() //remove the headers
+    eachHeader = headers.split(',')
+    array.shift() //remove the headers?
 
     for(var i = 0; i < (array.length - 1); i++){
       var eachLine = array[i].split(',');
