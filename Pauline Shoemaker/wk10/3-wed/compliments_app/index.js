@@ -1,7 +1,14 @@
 const PORT = 8888;
 var http = require('http')
-var app = function(request, response) {
+var express = require('express');
+var app = express();
 
+app.set('views','./views');
+app.set('view engine','ejs');
+
+
+app.get('/', function(request,response){
+  
   compliments = [
     "Your instructors love you",
     "High five = ^5",
@@ -10,14 +17,22 @@ var app = function(request, response) {
     "The Force is strong with you"
   ]
 
-  var randCompliment = compliments[Math.floor ( Math.random() * compliments.length )]
-  response.write(randCompliment)
-  response.end()
-  console.log(randCompliment);
-}
+  colors = [
+    "#FFBF00",
+    "#0080FF",
+    "#01DF3A",
+    "#FF0080"
+  ]
 
-var server = http.createServer(app)
-server.listen(PORT)
+  var randCompliment = compliments[Math.floor ( Math.random() * compliments.length )]
+  var randColor = colors[Math.floor ( Math.random() * colors.length )]
+
+  response.render('index', { randCompliment: randCompliment, randColor : randColor });
+})
+
+
+
+app.listen(PORT)
 //
 // console.log('hello')
 //
