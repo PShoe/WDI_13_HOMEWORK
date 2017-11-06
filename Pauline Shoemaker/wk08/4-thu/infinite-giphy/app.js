@@ -5,14 +5,15 @@ $div_to_append = $('.gifs-below-this')
 // https://api.giphy.com/v1/gifs/search?api_key=K0BlhOxhYYku9xZJAadBA9LlgXOizXIK&q=dog&limit=&offset=4&rating=G&lang=en
 
 
-$search_btn.on('click', function(){
+$search_btn.on('click', function(event){
+  event.preventDefault()
   var options = {
     url: "http://api.giphy.com/v1/gifs/search",
     method: 'get',
     data: {
-      api_key: 'K0BlhOxhYYku9xZJAadBA9LlgXOizXIK',
       q: $search_term.val(),
-      limit: 10
+      api_key: 'K0BlhOxhYYku9xZJAadBA9LlgXOizXIK',
+      limit: 10,
     }
   }
 
@@ -29,14 +30,13 @@ $(window).scroll(function () {
 
   if ($(window).scrollTop() + $(window).height() == $(document).height())
      {
-
       var options = {
       url: "http://api.giphy.com/v1/gifs/search",
       method: 'get',
       data: {
         api_key: 'K0BlhOxhYYku9xZJAadBA9LlgXOizXIK',
-        q: $search.val(),
-        limit: 10,
+        q: $search_term.val(),
+        limit: 5,
         offset: $div_to_append.children().length
       }
     }
